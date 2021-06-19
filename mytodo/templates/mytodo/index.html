@@ -1,0 +1,17 @@
+{% extends "mytodo/layout.html" %}
+
+{% block body %}
+    <h1 style="text-align: center;"> My ToDo</h1>
+
+    <ul>
+       {% for todo in todo %}
+            <li>{{todo.todo}} | {{todo.date}}</li> 
+            <button> <a href="{% url 'del' todo.id %}" style="text-decoration: none;">Completed</a> </button>
+            {% empty %}
+                <h3>No Tasks</h3>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add' %}">Add ToDo</a>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "mytodo/layout.html" %}
+
+{% block body %}
+
+    <h1 style="text-align: center;">Add Task</h1>
+
+    <form action="{% url 'gettask' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="add" placeholder="task">
+        <input type="text" name="date" placeholder="duedate (YYYY-MM-DD)">
+        <input type="submit" name="submit" value="Add Task">
+        
+    </form>
+
+    <a href="{% url 'index' %}">View ToDo</a>
+
+
+
+{% endblock %}
